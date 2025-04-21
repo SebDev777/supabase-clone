@@ -1,3 +1,5 @@
+"use client"
+
 import GrayButton from "@/components/GrayButton";
 import GreenButton from "@/components/GreenButton";
 import Slider from "@/components/Slider";
@@ -5,7 +7,9 @@ import { cn } from "@/lib/utils";
 import { useInView } from "motion/react";
 import { useRef } from "react";
 
-const items = Array(9).fill(Array(2).fill("XD"));
+const items = Array(9).fill(Array(2).fill((
+    <img className="filter dark:invert" src="https://supabase.com/_next/image?url=%2Fimages%2Fcustomers%2Flogos%2Fshotgun.png&w=640&q=75&dpl=dpl_3QCvmTh4DarNQnaCq1489SoCyBYm" alt="company" />
+)));
 
 export default function CustomerStories() {
     const ref = useRef(null);

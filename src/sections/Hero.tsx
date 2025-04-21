@@ -1,3 +1,5 @@
+"use client"
+
 import GrayButton from "@/components/GrayButton";
 import GreenButton from "@/components/GreenButton";
 import { motion } from "motion/react";

@@ -1,3 +1,5 @@
+"use client"
+
 import { cn } from "@/lib/utils";
 import { ArrowUpRight, Check } from "lucide-react";
 import { motion } from "motion/react";

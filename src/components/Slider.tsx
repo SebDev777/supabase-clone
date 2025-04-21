@@ -1,6 +1,5 @@
-"use client"
+"use client";
 
-import { isBigViewport, isMidViewport, isSmallViewport, usePlatform, useXlScreens } from "@/hooks/usePlatform";
 import { cn } from "@/lib/utils";
 import { motion, useInView } from "motion/react";
 import { useEffect, useRef, useState } from "react";
@@ -13,16 +12,10 @@ export default function Slider({
 }) {
     const scrollRef = useRef<HTMLDivElement | null>(null);
     const itemWidthRef = useRef<number>(0);
-    const inView = useRef(null)
+    const inView = useRef(null);
     const isInView = useInView(inView, { once: true, amount: 0.65 });
 
-    const platform = usePlatform()
     useEffect(() => {
-        console.log("Device changed", platform)
-    }, [platform])
-
-    useEffect(() => {
-        if (isSmallViewport(platform)) return console.log("is small viewport");
         if (!isInView) return;
         const scrollContainer = scrollRef.current;
         const interval = 3000; // milisegundos
@@ -57,15 +50,13 @@ export default function Slider({
 
         const scrollInterval = setInterval(autoScroll, interval);
         return () => clearInterval(scrollInterval);
-    }, [isInView, platform]);
+    }, [isInView]);
 
     return (
         <div className={cn(className)} ref={inView}>
             <div
                 ref={scrollRef}
-                className={cn("w-full h-full overflow-x-auto snap-x snap-mandatory [mask-image:linear-gradient(to_right,transparent,black_20%,black_80%,transparent)]", {
-                    "overflow-x-hidden ": isMidViewport(platform) || isBigViewport(platform)                    
-                })}
+                className="w-full h-full overflow-x-hidden snap-x snap-mandatory [mask-image:linear-gradient(to_right,transparent,black_20%,black_80%,transparent)]"
             >
                 <motion.div
                     initial={{ opacity: 0, y: 50 }}
@@ -80,10 +71,12 @@ export default function Slider({
                             {item.map((content, index) => (
                                 <motion.div
                                     key={index}
-                                    className="smooth"
+                                    className="smooth flex items-center justify-center"
                                     whileHover={{ scale: 1.05 }}
                                 >
-                                    {content}
+                                    <div className="h-1/2 w-1/2 flex items-center opacity-50">
+                                        {content}
+                                    </div>
                                 </motion.div>
                             ))}
                         </div>

@@ -1,3 +1,5 @@
+"use client"
+
 import { useRef, useState } from "react";
 import { ZapOff } from "lucide-react";
 import { motion } from "motion/react";
