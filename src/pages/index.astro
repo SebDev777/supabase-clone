@@ -1,5 +1,14 @@
 ---
-
+import "@/styles/global.css";
+import Hero from "@/sections/Hero"
+import Navbar from "@/sections/Navbar"
+import Infinitebar from "@/sections/Infinitebar"
+import Benefits from "@/sections/Benefits"
+import Frameworks from "@/sections/Frameworks";
+import CustomerStories from "@/sections/CustomerStories";
+import Templates from "@/sections/Templates";
+import Video from "@/sections/Video";
+import Relleno from "@/sections/Relleno"
 ---
 
 <html lang="en">
@@ -11,6 +20,14 @@
 		<title>Astro</title>
 	</head>
 	<body>
-		<h1>Astro</h1>
+		<Navbar client:load />
+		<Hero client:load />
+		<Infinitebar client:load />
+		<Benefits client:load />
+		<Frameworks client:load />
+		<CustomerStories client:load />
+		<Templates client:load />
+		<Video client:load />
+		<Relleno />
 	</body>
 </html>

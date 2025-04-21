@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Flow+Circular&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import "tailwindcss";
+
+:root {
+    --bg-primary: rgb(18, 18, 18);
+    --bg-secondary: rgb(46, 46, 46);
+}
+
+@layer base {
+    body {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: var(--color-bg-primary);
+        font-family: "Poppins";
+    
+        &::selection {
+            background-color: var(--color-emerald-300);
+        }
+    }
+
+    p {
+        @apply font-medium;
+        color: var(--color-zinc-500);
+    
+        & b {
+            @apply font-normal;
+            color: var(--color-white);
+            opacity: 90%;
+        }
+    }
+}
+
+@layer components {
+    .line-effect {
+        @apply after:bg-gradient-to-r after:from-emerald-950/50 after:to-emerald-400 after:content-[''] after:absolute after:w-0 after:opacity-0 group-hover:after:w-[55%] group-hover:after:opacity-100 after:transition-all after:duration-200 after:h-1 after:rounded-lg after:left-0 after:bottom-[45%];
+    }
+    .smooth {
+        @apply transition-all duration-200;
+    }
+
+    .button-green {
+        @apply border border-emerald-200/20 bg-emerald-800 hover:border-emerald-200/80 hover:bg-emerald-700
+    }
+
+    .button-zinc {
+        @apply border border-zinc-400/20 bg-zinc-800 hover:border-zinc-400/50
+    }
+
+    .scrollbar-hidden {
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE 10+ */
+        
+        & ::-webkit-scrollbar {
+            display: none;
+        }
+    }
+}
+
+@theme {
+    --animate-infinite-scroll: infinite-scroll 15s linear infinite;
+
+    @keyframes infinite-scroll {
+        from {
+            transform: translateX(100%);
+        }
+        to {
+            transform: translateX(-100%);
+        }
+    }
+
+    --color-bg-primary: var(--bg-primary);
+    --color-bg-secondary: var(--bg-secondary);
+    --font-display: "Poppins";
+    --font-loading: "Flow Circular";
+    --font-source: "Source Code Pro"
+}
